@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "nickname": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "description": "Messenger nickname",
+      "example": "monk_case"
+    },
+    "messengerId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "Messenger id",
+      "example": 1
+    },
+    "messengerType": {
+      "type": "string",
+      "enum":  [
+        "TELEGRAM",
+        "SLACK"
+      ],
+      "description": "Messenger type",
+      "example": "TELEGRAM"
+    }
+  },
+  "required": [
+    "nickname",
+    "messengerId",
+    "messengerType"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,30 @@
+#GITHUB
+github_pull_requests_get:
+  uri: /api/services/github/pull-requests
+  handler: App\Controller\GitHubController::getPullRequests
+  method: GET
+
+github_token_check:
+  uri: /api/services/github/token/check
+  handler: App\Controller\GitHubController::checkToken
+  method: POST
+
+#TELEGRAM
+telegram_get_updates:
+  uri: /api/services/telegram/updates
+  handler: App\Controller\TelegramController::getUpdates
+  method: GET
+
+telegram_send_message:
+  uri: /api/services/telegram/send-message
+  handler: App\Controller\TelegramController::sendMessage
+  method: POST
+
+#FLUENTD
+fluentd:
+  uri: /api/services/fluentd/send-message
+  handler: App\Controller\FluentdController::sendMessage
+  method: POST
+
+
+

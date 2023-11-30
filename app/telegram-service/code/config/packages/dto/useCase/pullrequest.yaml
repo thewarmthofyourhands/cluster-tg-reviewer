@@ -1,0 +1,12 @@
+- namespace: App\Dto\UseCase\PullRequests
+  class: PullRequestDto
+  properties:
+    id: int
+    projectId: int
+    developerId: null|int
+    pullRequestNumber: int
+    title: string
+    branch: string
+    status: \App\Enums\UseCase\PullRequests\PullRequestStatusEnum
+    lastPendingDate: null|string
+

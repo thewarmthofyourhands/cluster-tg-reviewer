@@ -1,0 +1,75 @@
+version: '3.7'
+services:
+  mysql:
+    image: 'mariadb:latest'
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=reviewer
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+  mysql-telegram:
+    image: 'mariadb:latest'
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=reviewer
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3307:3306"
+
+  main-service:
+    build:
+      context: ./../main-service
+      dockerfile: Dockerfile
+      target: base
+    command: php -a
+    tty: true
+    volumes:
+      - './../main-service/code:/code'
+
+  request-sender-service:
+    build:
+      context: ./../request-sender-service
+      dockerfile: Dockerfile
+      target: base
+    command: php -a
+    tty: true
+    volumes:
+      - './../request-sender-service/code:/code'
+
+  telegram-service:
+    build:
+      context: ./../telegram-service
+      dockerfile: Dockerfile
+      target: base
+    command: php -a
+    tty: true
+    volumes:
+      - './../telegram-service/code:/code'
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - 2181:2181
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092,OUTSIDE://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      zookeeper:
+        condition: service_started
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "chatId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 625235325
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": ""
+    }
+  },
+  "required": [
+    "chatId",
+    "message"
+  ],
+  "additionalProperties": false
+}

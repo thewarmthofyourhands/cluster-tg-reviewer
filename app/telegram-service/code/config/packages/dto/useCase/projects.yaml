@@ -1,0 +1,19 @@
+- namespace: App\Dto\UseCase\Projects
+  class: ProjectDto
+  properties:
+    adminId: int
+    id: int
+    name: string
+    projectStatus: \App\Enums\UseCase\Projects\ProjectStatusEnum
+    gitRepositoryUrl: string
+    gitType: \App\Enums\UseCase\Projects\GitServiceTypeEnum
+    reviewType: \App\Enums\UseCase\Projects\ReviewTypeEnum
+
+- namespace: App\Dto\UseCase\Projects
+  class: AddProjectDto
+  properties:
+    telegramUserId: int
+    name: string
+    gitRepositoryUrl: string
+    gitType: \App\Enums\UseCase\Projects\GitServiceTypeEnum
+    reviewType: \App\Enums\UseCase\Projects\ReviewTypeEnum

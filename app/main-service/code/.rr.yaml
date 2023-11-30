@@ -1,0 +1,58 @@
+version: '3'
+
+server:
+  command: "php public/index.php"
+
+http:
+  address: "0.0.0.0:80"
+  pool:
+    num_workers: 2
+    supervisor:
+      ttl: 3600s
+
+logs:
+  level: error
+
+service:
+  pullrequest_sync_producer:
+    command: "php /code/bin/console app.handle.pullrequest.sync"
+    process_num: 2
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 100
+  pullrequest_capture_producer:
+    command: "php /code/bin/console app.handle.pullrequest.capture"
+    process_num: 2
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 10
+  review_status_producer:
+    command: "php /code/bin/console app.handle.review.status"
+    process_num: 2
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 3600
+  pullrequest_sync_queue:
+    command: "php /code/bin/console app.queue.pullrequest.sync"
+    process_num: 2
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 10
+  pullrequest_capture_queue:
+    command: "php /code/bin/console app.queue.pullrequest.capture"
+    process_num: 2
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 10
+  review_status_queue:
+    command: "php /code/bin/console app.queue.review.status"
+    process_num: 2
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 10

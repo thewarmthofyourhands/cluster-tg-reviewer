@@ -1,0 +1,37 @@
+{
+    "name": "reviewer/php-k8s",
+    "authors": [
+        {
+            "name": "lilith"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "eva/env": "dev-main",
+        "eva/event-dispatcher": "dev-main",
+        "eva/console": "dev-main",
+        "eva/dependency-injection": "dev-main",
+        "eva/foundation": "dev-main",
+        "eva/database": "dev-main",
+        "eva/api-doc": "dev-main",
+        "eva/http-kernel": "dev-main",
+        "eva/http-request": "dev-main",
+        "spiral/roadrunner-http": "^3.1",
+        "nyholm/psr7": "^1.8",
+        "eva/dto-creator": "dev-main",
+        "psr/log": "^2.0|^3.0",
+        "ext-mbstring": "*",
+        "justinrainbow/json-schema": "5.x-dev",
+        "predis/predis": "v3.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Migrations\\": "migrations/",
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0@dev"
+    }
+}

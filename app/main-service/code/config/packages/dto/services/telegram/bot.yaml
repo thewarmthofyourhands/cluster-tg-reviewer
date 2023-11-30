@@ -1,0 +1,5 @@
+- namespace: App\Dto\Services\Telegram\TelegramUserService
+  class: DataDto
+  properties:
+    action: string
+    data: null|array

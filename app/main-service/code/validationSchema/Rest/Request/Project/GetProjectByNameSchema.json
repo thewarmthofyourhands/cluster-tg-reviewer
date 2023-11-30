@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "adminId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": "project 1"
+    }
+  },
+  "required": [
+    "adminId",
+    "name"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+- namespace: App\Dto\Services\GitService
+  class: GetPullRequestListDto
+  properties:
+    gitRepositoryUrl: string
+    token: string
+
+- namespace: App\Dto\Services\GitService
+  class: RemotePullRequestDto
+  properties:
+    branch: string
+    title: string
+    id: int
+    repositoryName: string
+    repositoryFullName: string
+    status: \App\Enums\PullRequestStatusEnum

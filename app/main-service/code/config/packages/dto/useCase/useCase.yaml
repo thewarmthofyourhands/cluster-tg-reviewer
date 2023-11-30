@@ -1,0 +1,254 @@
+#admin
+- namespace: App\Dto\UseCase
+  class: AddAdminDto
+  properties:
+    nickname: string
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+
+- namespace: App\Dto\UseCase
+  class: GetAdminByMessengerIdDto
+  properties:
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+
+- namespace: App\Dto\UseCase
+  class: GetAdminByIdDto
+  properties:
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: AdminDto
+  properties:
+    id: int
+    nickname: string
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+
+#projects
+- namespace: App\Dto\UseCase
+  class: DeleteProjectDto
+  properties:
+    adminId: int
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: AddProjectDto
+  properties:
+    adminId: int
+    name: string
+    gitRepositoryUrl: string
+    gitType: \App\Enums\GitServiceTypeEnum
+    reviewType: \App\Enums\ReviewTypeEnum
+
+- namespace: App\Dto\UseCase
+  class: ChangeProjectReviewTypeDto
+  properties:
+    adminId: int
+    id: int
+    reviewType: \App\Enums\ReviewTypeEnum
+
+- namespace: App\Dto\UseCase
+  class: ProjectDto
+  properties:
+    id: int
+    adminId: int
+    name: string
+    projectStatus: \App\Enums\ProjectStatusEnum
+    gitRepositoryUrl: string
+    gitType: \App\Enums\GitServiceTypeEnum
+    reviewType: \App\Enums\ReviewTypeEnum
+
+- namespace: App\Dto\UseCase
+  class: GetProjectListDto
+  properties:
+    adminId: int
+
+- namespace: App\Dto\UseCase
+  class: GetProjectDto
+  properties:
+    adminId: int
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: GetProjectByNameDto
+  properties:
+    adminId: int
+    name: string
+
+- namespace: App\Dto\UseCase
+  class: GetProjectByGitRepositoryUrlDto
+  properties:
+    adminId: int
+    gitRepositoryUrl: string
+
+#Credentials
+- namespace: App\Dto\UseCase
+  class: AddCredentialDto
+  properties:
+    adminId: int
+    projectId: int
+    token: string
+    dateExpired: string
+
+- namespace: App\Dto\UseCase
+  class: DeleteCredentialDto
+  properties:
+    adminId: int
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: GetCredentialByProjectIdDto
+  properties:
+    adminId: int
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: CredentialDto
+  properties:
+    id: int
+    projectId: int
+    token: string
+    dateExpired: string
+    isRequestWorkable: bool
+
+#Chat
+- namespace: App\Dto\UseCase
+  class: AddChatDto
+  properties:
+    adminId: int
+    projectId: int
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+
+- namespace: App\Dto\UseCase
+  class: DeleteChatDto
+  properties:
+    adminId: int
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: GetChatByIdDto
+  properties:
+    adminId: int
+    projectId: int
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: GetChatByProjectIdDto
+  properties:
+    adminId: int
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: ChatDto
+  properties:
+    projectId: int
+    id: int
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+    status: \App\Enums\ChatStatusEnum
+
+
+#Developers
+- namespace: App\Dto\UseCase
+  class: AddDeveloperDto
+  properties:
+    adminId: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\DeveloperStatusEnum
+
+- namespace: App\Dto\UseCase
+  class: ChangeDeveloperStatusDto
+  properties:
+    adminId: int
+    projectId: int
+    id: int
+    status: \App\Enums\DeveloperStatusEnum
+
+- namespace: App\Dto\UseCase
+  class: DeleteDeveloperDto
+  properties:
+    adminId: int
+    projectId: int
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: GetDeveloperListDto
+  properties:
+    adminId: int
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: GetDeveloperByIdDto
+  properties:
+    adminId: int
+    projectId: int
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: GetDeveloperByNicknameDto
+  properties:
+    adminId: int
+    projectId: int
+    nickname: string
+
+- namespace: App\Dto\UseCase
+  class: DeveloperDto
+  properties:
+    id: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\DeveloperStatusEnum
+
+#Pull requests
+# Получаем пулл реквесты которые ревьюер должен отревьюить
+- namespace: App\Dto\UseCase
+  class: PullRequestDto
+  properties:
+    id: int
+    projectId: int
+    developerId: null|int
+    pullRequestNumber: int
+    title: string
+    branch: string
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: null|string
+
+- namespace: App\Dto\UseCase
+  class: GetPendingReviewPullRequestListDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: GetOpenReviewPullRequestListDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: GetAllPullRequestListDto
+  properties:
+    adminId: int
+    projectId: int
+
+- namespace: App\Dto\UseCase
+  class: BindDeveloperToPullRequestDto
+  properties:
+    adminId: int
+    projectId: int
+    developerId: int
+    id: int
+
+- namespace: App\Dto\UseCase
+  class: ReviewStatusDto
+  properties:
+    projectName: string
+    developerNickname: string
+    title: string
+    branch: string
+    url: string
+    pastHours: string
+

@@ -1,0 +1,7 @@
+- namespace: App\Dto\Services\Telegram\TelegramUserService
+  class: TelegramUserDto
+  properties:
+    id: int
+    telegramId: int
+    username: string
+    data: string

@@ -1,0 +1,69 @@
+default:
+  command: 'default'
+  handler: App\Actions\DefaultAction
+
+#Project
+projects_select:
+  command: 'selectProject'
+  handler: App\Actions\Projects\SelectProjectAction
+
+projects_add:
+  command: 'addProject'
+  handler: App\Actions\Projects\AddProjectAction
+
+projects_delete:
+  command: 'deleteProject'
+  handler: App\Actions\Projects\DeleteProjectAction
+
+#CREDENTIALS
+credentials_select:
+  command: 'getCredentials'
+  handler: App\Actions\Credentials\GetCredentialsAction
+
+credentials_add:
+  command: 'addCredentials'
+  handler: App\Actions\Credentials\AddCredentialsAction
+
+credentials_delete:
+  command: 'deleteCredentials'
+  handler: App\Actions\Credentials\DeleteCredentialsAction
+
+#CHAT
+chat_select:
+  command: 'getChat'
+  handler: App\Actions\Chat\GetChatAction
+
+chat_add:
+  command: 'addChat'
+  handler: App\Actions\Chat\AddChatAction
+
+chat_delete:
+  command: 'deleteChat'
+  handler: App\Actions\Chat\DeleteChatAction
+
+#Developers
+developers_add:
+  command: 'addDeveloper'
+  handler: App\Actions\Developers\AddDeveloperAction
+
+developers_get_all:
+  command: 'getDevelopers'
+  handler: App\Actions\Developers\GetDeveloperListAction
+
+developers_edit_status:
+  command: 'editDeveloperStatus'
+  handler: App\Actions\Developers\EditDeveloperStatusAction
+
+developers_delete:
+  command: 'deleteDeveloper'
+  handler: App\Actions\Developers\DeleteDeveloperAction
+
+#PULL REQUESTS
+
+pull_requests_get_all:
+  command: 'getPullRequests'
+  handler: App\Actions\PullRequests\GetPullRequestListAction
+
+pull_requests_bind_developer:
+  command: 'bindDeveloperToPullRequest'
+  handler: App\Actions\PullRequests\BindDeveloperToPullRequestAction

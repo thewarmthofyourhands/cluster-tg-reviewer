@@ -1,0 +1,61 @@
+- namespace: App\Dto\Services\DeveloperService
+  class: AddDeveloperDto
+  properties:
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\DeveloperStatusEnum
+
+- namespace: App\Dto\Services\DeveloperService
+  class: ChangeDeveloperStatusDto
+  properties:
+    projectId: int
+    id: int
+    status: \App\Enums\DeveloperStatusEnum
+
+- namespace: App\Dto\Services\DeveloperService
+  class: DeleteDeveloperDto
+  properties:
+    projectId: int
+    id: int
+
+- namespace: App\Dto\Services\DeveloperService
+  class: GetDeveloperListDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\Services\DeveloperService
+  class: GetDeveloperWithPendingPullRequestCountListDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\Services\DeveloperService
+  class: GetDeveloperByIdDto
+  properties:
+    projectId: int
+    id: int
+
+- namespace: App\Dto\Services\DeveloperService
+  class: GetDeveloperByNicknameDto
+  properties:
+    projectId: int
+    nickname: string
+
+- namespace: App\Dto\Services\DeveloperService
+  class: DeveloperDto
+  properties:
+    id: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\DeveloperStatusEnum
+
+- namespace: App\Dto\Services\DeveloperService
+  class: DeveloperWithPendingPullRequestCountDto
+  properties:
+    id: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\DeveloperStatusEnum
+    pullRequestCount: int

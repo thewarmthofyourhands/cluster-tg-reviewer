@@ -1,0 +1,4 @@
+send_message:
+  uri: /api/send-message
+  handler: App\Controller\SendMessageController::sendMessage
+  method: POST

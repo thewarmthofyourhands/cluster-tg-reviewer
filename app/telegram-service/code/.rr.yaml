@@ -1,0 +1,27 @@
+version: '3'
+
+#rpc:
+#  listen: tcp://127.0.0.1:6001
+
+server:
+  command: "php public/index.php"
+#  relay: "tcp://127.0.0.1:7000" Для логов
+
+http:
+  address: "0.0.0.0:80"
+  pool:
+    num_workers: 2
+    supervisor:
+      ttl: 3600s
+
+logs:
+  level: error
+
+service:
+  tg_reviewer:
+    command: "php /code/bin/console app.handle.tg"
+    process_num: 5
+    exec_timeout: 0s
+    remain_after_exit: true
+    service_name_in_log: false
+    restart_sec: 2

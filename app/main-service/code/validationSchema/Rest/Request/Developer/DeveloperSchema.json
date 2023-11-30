@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "projectId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "nickname": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": "monk_case"
+    },
+    "isAdmin": {
+      "type": "boolean",
+      "description": "",
+      "default": false,
+      "example": false
+    },
+    "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+        "READY",
+        "STOP"
+      ],
+      "example": "READY"
+    }
+  },
+  "required": [
+    "id",
+    "projectId",
+    "nickname",
+    "isAdmin",
+    "status"
+  ],
+  "additionalProperties": false
+}

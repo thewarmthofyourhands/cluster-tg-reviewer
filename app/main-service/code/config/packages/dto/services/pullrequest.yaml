@@ -1,0 +1,77 @@
+- namespace: App\Dto\Services\PullRequestService
+  class: CaptureOpenPullRequestsDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\Services\PullRequestService
+  class: SyncPullRequestsDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\Services\PullRequestService
+  class: AddPullRequestDto
+  properties:
+    projectId: int
+    developerId: null|int
+    pullRequestNumber: int
+    title: string
+    branch: string
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: null|string
+
+- namespace: App\Dto\Services\PullRequestService
+  class: ChangeDeveloperIdPullRequestDto
+  properties:
+    id: int
+    projectId: int
+    developerId: null|int
+
+- namespace: App\Dto\Services\PullRequestService
+  class: ChangeStatusPullRequestDto
+  properties:
+    id: int
+    projectId: int
+    status: \App\Enums\PullRequestStatusEnum
+
+- namespace: App\Dto\Services\PullRequestService
+  class: ChangeToPendingStatusPullRequestDto
+  properties:
+    id: int
+    projectId: int
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: string
+
+- namespace: App\Dto\Services\PullRequestService
+  class: PullRequestDto
+  properties:
+    id: int
+    projectId: int
+    developerId: null|int
+    pullRequestNumber: int
+    title: string
+    branch: string
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: null|string
+
+- namespace: App\Dto\Services\PullRequestService
+  class: GetPendingReviewPullRequestListDto
+  properties:
+    projectId: int
+
+# Получаем пулл реквесты на которые нужно назначить ревьювера или которые апрувнутые
+- namespace: App\Dto\Services\PullRequestService
+  class: GetOpenReviewPullRequestListDto
+  properties:
+    projectId: int
+
+# Получаем пулл реквесты на которые нужно назначить ревьювера или которые апрувнутые
+- namespace: App\Dto\Services\PullRequestService
+  class: GetOpenReviewWithoutDeveloperPullRequestListDto
+  properties:
+    projectId: int
+
+# Для апдейта статуса
+- namespace: App\Dto\Services\PullRequestService
+  class: GetNotClosedPullRequestListDto
+  properties:
+    projectId: int

@@ -1,0 +1,49 @@
+{
+  "type": ["object", "null"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "projectId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "messengerId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "messengerType": {
+      "type": "string",
+      "enum":  [
+        "TELEGRAM",
+        "SLACK"
+      ],
+      "description": "Messenger type",
+      "example": "TELEGRAM"
+    },
+    "status": {
+      "type": "string",
+      "enum":  [
+        "READY",
+        "NOT_EXIST"
+      ],
+      "description": "Chat status",
+      "example": "NOT_EXIST"
+    }
+  },
+  "required": [
+    "id",
+    "projectId",
+    "messengerId",
+    "messengerType",
+    "status"
+  ],
+  "additionalProperties": false
+}

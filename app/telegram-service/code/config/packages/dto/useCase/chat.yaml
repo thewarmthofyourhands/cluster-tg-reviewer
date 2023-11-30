@@ -1,0 +1,15 @@
+- namespace: App\Dto\UseCase\Chat
+  class: AddChatDto
+  properties:
+    telegramUserId: int
+    projectId: int
+    messengerId: int
+
+- namespace: App\Dto\UseCase\Chat
+  class: ChatDto
+  properties:
+    projectId: int
+    id: int
+    messengerId: int
+    messengerType: \App\Enums\UseCase\MessengerTypeEnum
+    status: \App\Enums\UseCase\Chat\ChatStatusEnum

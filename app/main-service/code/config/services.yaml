@@ -1,0 +1,128 @@
+parameters:
+  logger.name: 'main'
+
+services:
+  App:
+    resource: /src
+    exclude: /src/Application.php
+
+  Eva\HttpKernel\EventListeners:
+    resource: /vendor/eva/http-kernel/src/EventListeners
+
+  Eva\HttpKernel\EventListeners\ExceptionListener:
+    arguments:
+      dev: '%env.APP_DEV%'
+
+  Eva\HttpKernel\RouterInterface:
+    class: Eva\HttpKernel\Router
+    calls:
+      - setRoutes: '%package.routes%'
+
+  Eva\Console\EventListeners:
+    resource: /vendor/eva/console/src/EventListeners
+
+  Eva\ApiDoc:
+    resource: /vendor/eva/api-doc/src
+
+  Eva\Console\Commands:
+    resource: /vendor/eva/console/src/Commands
+
+  Eva\Database\Migrations:
+    resource: /vendor/eva/database/src/Migrations
+
+  Eva\Http\ClientInterface:
+    class: Eva\Http\Client
+
+  Eva\Database\ConnectionStoreInterface:
+    class: Eva\Database\ConnectionStore
+
+  Eva\Console\RouterInterface:
+    class: Eva\Console\Router
+    calls:
+      - setRoutes: '%package.console%'
+
+  Eva\Console\Commands\ListCommand:
+    arguments:
+      commands: '%package.console%'
+
+  Eva\Database\Migrations\Migrator:
+    arguments:
+      config: '%package.schema%'
+
+  App\Services\RequestServices\TelegramRequestService:
+    arguments:
+      host: '%env.TELEGRAM_SERVICE_HOST%'
+
+  App\Services\RequestServices\GithubRequestService:
+    arguments:
+      host: '%env.REQUEST_SENDER_SERVICE_HOST%'
+
+  App\Services\RequestServices\FluentdRequestService:
+    arguments:
+      host: '%env.REQUEST_SENDER_SERVICE_HOST%'
+      tag: '%env.FLUENTD_TAG%'
+
+  App\Locker\RedisLocker:
+    arguments:
+      connectionUrl: '%env.REDIS_CONNECTION_URL%'
+
+  App\Queue\KafkaConsumerQueue:
+    arguments:
+      brokerUrl: '%env.KAFKA_CONNECTION_URL%'
+
+  App\Queue\KafkaProduceQueue:
+    arguments:
+      brokerUrl: '%env.KAFKA_CONNECTION_URL%'
+
+  App\Interfaces\Services\AdminServiceInterface:
+    class: App\Services\AdminService
+
+  App\Interfaces\Repositories\AdminRepositoryInterface:
+    class: App\Repositories\AdminRepository
+
+  App\Interfaces\Services\ChatServiceInterface:
+    class: App\Services\ChatService
+
+  App\Interfaces\Repositories\ChatRepositoryInterface:
+    class: App\Repositories\ChatRepository
+
+  App\Interfaces\Services\CredentialServiceInterface:
+    class: App\Services\CredentialService
+
+  App\Interfaces\Repositories\CredentialRepositoryInterface:
+    class: App\Repositories\CredentialRepository
+
+  App\Interfaces\Services\DeveloperServiceInterface:
+    class: App\Services\DeveloperService
+
+  App\Interfaces\Repositories\DeveloperRepositoryInterface:
+    class: App\Repositories\DeveloperRepository
+
+  App\Interfaces\Services\ProjectServiceInterface:
+    class: App\Services\ProjectService
+
+  App\Interfaces\Repositories\ProjectRepositoryInterface:
+    class: App\Repositories\ProjectRepository
+
+
+  App\Interfaces\Services\ProjectStatusServiceInterface:
+    class: App\Services\ProjectStatusService
+
+  App\Interfaces\Services\PullRequestServiceInterface:
+    class: App\Services\PullRequestService
+
+  App\Interfaces\Repositories\PullRequestRepositoryInterface:
+    class: App\Repositories\PullRequestRepository
+
+  App\Interfaces\Services\GitServiceInterface:
+    class: App\Services\GitService
+
+  Psr\Log\LoggerInterface:
+    class: App\Logger\FluentdLogger
+
+  Eva\DtoCreator\DtoCreatorCommand:
+    class: Eva\DtoCreator\DtoCreatorCommand
+
+service_providers:
+  - Eva\EventDispatcher\EventDispatcherProvider
+  - App\ServiceProviders\DatabaseConnectionServiceProvider

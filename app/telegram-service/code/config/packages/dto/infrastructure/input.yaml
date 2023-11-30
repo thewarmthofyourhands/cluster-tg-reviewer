@@ -1,0 +1,14 @@
+- namespace: App\Dto\Infrastructure
+  class: InputMessageTelegramDto
+  properties:
+    chatId: int
+    chatType: string
+    telegramUser: \App\Dto\UseCase\TelegramUserDto
+    text: null|string
+    data: \App\Dto\Infrastructure\TelegramActionDataDto
+
+- namespace: App\Dto\Infrastructure
+  class: TelegramActionDataDto
+  properties:
+    action: string
+    data: null|array

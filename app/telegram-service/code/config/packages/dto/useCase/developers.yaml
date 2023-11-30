@@ -1,0 +1,26 @@
+
+- namespace: App\Dto\UseCase\Developers
+  class: AddDeveloperDto
+  properties:
+    telegramUserId: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\UseCase\Developers\DeveloperStatusEnum
+
+- namespace: App\Dto\UseCase\Developers
+  class: ChangeDeveloperStatusDto
+  properties:
+    telegramUserId: int
+    projectId: int
+    id: int
+    status: \App\Enums\UseCase\Developers\DeveloperStatusEnum
+
+- namespace: App\Dto\UseCase\Developers
+  class: DeveloperDto
+  properties:
+    id: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\UseCase\Developers\DeveloperStatusEnum

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "adminId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "id": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "reviewType": {
+      "type": "string",
+      "enum": [
+        "TEAM_LEAD_REVIEW",
+        "CROSS_REVIEW",
+        "CROSS_REVIEW_WITHOUT_TEAM_LEAD"
+      ],
+      "description": "",
+      "example": "TEAM_LEAD_REVIEW"
+    }
+  },
+  "required": [
+    "adminId",
+    "id",
+    "reviewType"
+  ],
+  "additionalProperties": false
+}

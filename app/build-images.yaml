@@ -1,0 +1,38 @@
+- name: Build PHP
+  hosts: localhost
+  tasks:
+    - shell: cd main-service && docker build -t monkcase/k8s:reviewer-main-service-v0.0.1 . && cd ../
+      register: out
+
+    - name: Debug output
+      debug: var=out.stdout_lines
+
+    - shell: docker push monkcase/k8s:reviewer-main-service-v0.0.1
+      register: out
+
+    - name: Debug output
+      debug: var=out.stdout_lines
+
+    - shell: cd telegram-service && docker build -t monkcase/k8s:reviewer-telegram-service-v0.0.1 . && cd ../
+      register: out
+
+    - name: Debug output
+      debug: var=out.stdout_lines
+
+    - shell: docker push monkcase/k8s:reviewer-telegram-service-v0.0.1
+      register: out
+
+    - name: Debug output
+      debug: var=out.stdout_lines
+
+    - shell: cd request-sender-service && docker build -t monkcase/k8s:reviewer-request-sender-service-v0.0.1 . && cd ../
+      register: out
+
+    - name: Debug output
+      debug: var=out.stdout_lines
+
+    - shell: docker push monkcase/k8s:reviewer-request-sender-service-v0.0.1
+      register: out
+
+    - name: Debug output
+      debug: var=out.stdout_lines

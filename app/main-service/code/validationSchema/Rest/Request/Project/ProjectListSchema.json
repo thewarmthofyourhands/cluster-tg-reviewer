@@ -1,0 +1,76 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "adminId": {
+        "type": "integer",
+        "minimal": 1,
+        "description": "",
+        "example": 1
+      },
+      "id": {
+        "type": "integer",
+        "minimal": 1,
+        "description": "",
+        "example": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "",
+        "example": "project 1"
+      },
+      "projectStatus": {
+        "type": "string",
+        "enum": [
+          "WITHOUT_CREDENTIAL",
+          "INVALID_CREDENTIAL",
+          "EXPIRED_CREDENTIAL",
+          "WITHOUT_CHAT",
+          "INVALID_CHAT",
+          "WITHOUT_DEVELOPERS",
+          "READY"
+        ],
+        "description": "",
+        "example": "WITHOUT_DEVELOPERS"
+      },
+      "gitRepositoryUrl": {
+        "type": "string",
+        "minLength": 1,
+        "description": "",
+        "example": "organization/repository-1"
+      },
+      "gitType": {
+        "type": "string",
+        "enum": [
+          "GIT_HUB",
+          "GIT_LAB",
+          "GIT_BUCKET"
+        ],
+        "description": "",
+        "example": "GIT_HUB"
+      },
+      "reviewType": {
+        "type": "string",
+        "enum": [
+          "TEAM_LEAD_REVIEW",
+          "CROSS_REVIEW",
+          "CROSS_REVIEW_WITHOUT_TEAM_LEAD"
+        ],
+        "description": "",
+        "example": "TEAM_LEAD_REVIEW"
+      }
+    },
+    "required": [
+      "id",
+      "adminId",
+      "name",
+      "projectStatus",
+      "gitRepositoryUrl",
+      "gitType",
+      "reviewType"
+    ],
+    "additionalProperties": false
+  }
+}

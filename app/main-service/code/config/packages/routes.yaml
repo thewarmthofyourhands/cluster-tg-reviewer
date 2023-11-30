@@ -1,0 +1,121 @@
+#ADMINS
+login:
+  uri: /api/login
+  handler: App\Controller\AdminController::login
+  method: POST
+
+#admins_read:
+#  uri: /api/admins
+#  handler: App\Controller\AdminController::getAdminByMessengerId
+#  method: GET
+
+#admins_read_one:
+#  uri: /api/admins/:id
+#  handler: App\Controller\AdminController::show
+#  method: GET
+
+admins_add:
+  uri: /api/admins
+  handler: App\Controller\AdminController::store
+  method: POST
+
+#PROJECTS
+projects_create:
+  uri: /api/projects
+  method: POST
+  handler: App\Controller\ProjectController::store
+
+projects_read:
+  uri: /api/projects
+  method: GET
+  handler: App\Controller\ProjectController::index
+
+projects_read_one:
+  uri: /api/projects/:id
+  method: GET
+  handler: App\Controller\ProjectController::show
+
+projects_update_review_type:
+  uri: /api/projects/:id/review-type
+  method: PATCH
+  handler: App\Controller\ProjectController::editReviewType
+
+projects_delete:
+  uri: /api/projects/:id
+  method: DELETE
+  handler: App\Controller\ProjectController::delete
+
+#CHAT
+chat_create:
+  uri: /api/projects/:projectId/chat
+  method: POST
+  handler: App\Controller\ChatController::store
+
+chat_read:
+  uri: /api/projects/:projectId/chat
+  method: GET
+  handler: App\Controller\ChatController::show
+
+chat_delete:
+  uri: /api/projects/:projectId/chat
+  method: DELETE
+  handler: App\Controller\ChatController::delete
+
+#CREDENTIALS
+credentials_create:
+  uri: /api/projects/:projectId/credentials
+  method: POST
+  handler: App\Controller\CredentialsController::store
+
+credentials_read:
+  uri: /api/projects/:projectId/credentials
+  method: GET
+  handler: App\Controller\CredentialsController::show
+
+credentials_delete:
+  uri: /api/projects/:projectId/credentials
+  method: DELETE
+  handler: App\Controller\CredentialsController::delete
+
+#DEVELOPERS
+developers_create:
+  uri: /api/projects/:projectId/developers
+  method: POST
+  handler: App\Controller\DeveloperController::store
+
+developers_read:
+  uri: /api/projects/:projectId/developers
+  method: GET
+  handler: App\Controller\DeveloperController::index
+
+developers_read_one:
+  uri: /api/projects/:projectId/developers/:id
+  method: GET
+  handler: App\Controller\DeveloperController::show
+
+developers_update_status:
+  uri: /api/projects/:projectId/developers/:id/status
+  method: PATCH
+  handler: App\Controller\DeveloperController::editStatus
+
+developers_delete:
+  uri: /api/projects/:projectId/developers/:id
+  method: DELETE
+  handler: App\Controller\DeveloperController::delete
+
+#PULL REQUESTS
+pull_requests_read:
+  uri: /api/projects/:projectId/pull-requests
+  method: GET
+  handler: App\Controller\PullRequestController::index
+
+#pull_requests_read_one:
+#  uri: /api/projects/:projectId/pull-requests/:id
+#  method: GET
+#  handler: App\Controller\PullRequestController::show
+
+pull_requests_bind_developer:
+  uri: /api/projects/:projectId/pull-requests/:id/developer
+  method: PATCH
+  handler: App\Controller\PullRequestController::bindDeveloper
+

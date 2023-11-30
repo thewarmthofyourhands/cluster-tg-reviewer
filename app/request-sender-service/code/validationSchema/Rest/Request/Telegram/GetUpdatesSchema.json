@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "description": "Token",
+      "example": "124dqw214r1t1rhhagd2"
+    },
+    "ts": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "Ts telegram",
+      "example": 1
+    }
+  },
+  "required": [
+    "token"
+  ],
+  "additionalProperties": false
+}

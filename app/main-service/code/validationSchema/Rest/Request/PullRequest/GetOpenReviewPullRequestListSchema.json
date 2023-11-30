@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    }
+  },
+  "required": [
+    "projectId"
+  ],
+  "additionalProperties": false
+}

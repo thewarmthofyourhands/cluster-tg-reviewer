@@ -1,0 +1,66 @@
+#parameters:
+#  logger.name: 'main'
+#
+services:
+  App:
+    resource: /src
+    exclude: /src/Application.php
+
+  Eva\HttpKernel\EventListeners:
+    resource: /vendor/eva/http-kernel/src/EventListeners
+
+  Eva\HttpKernel\EventListeners\ExceptionListener:
+    arguments:
+      dev: '%env.APP_DEV%'
+
+  Eva\HttpKernel\RouterInterface:
+    class: Eva\HttpKernel\Router
+    calls:
+      - setRoutes: '%package.routes%'
+
+  Eva\Console\EventListeners:
+    resource: /vendor/eva/console/src/EventListeners
+
+  Eva\Console\Commands:
+    resource: /vendor/eva/console/src/Commands
+
+  Eva\Database\Migrations:
+    resource: /vendor/eva/database/src/Migrations
+
+  Eva\Http\ClientInterface:
+    class: Eva\Http\Client
+
+  Eva\Database\ConnectionStoreInterface:
+    class: Eva\Database\ConnectionStore
+
+  Eva\Console\RouterInterface:
+    class: Eva\Console\Router
+    calls:
+      - setRoutes: '%package.console%'
+
+  Eva\Console\Commands\ListCommand:
+    arguments:
+      commands: '%package.console%'
+
+  Eva\Database\Migrations\Migrator:
+    arguments:
+      config: '%package.schema%'
+
+  App\EventListeners\HttpExceptionListener:
+    arguments:
+      dev: '%env.APP_DEV%'
+
+  App\Services\RequestServices\FluentdRequestService:
+    arguments:
+      tag: '%env.FLUENTD_TAG%'
+      ip: '%env.FLUENTD_IP%'
+      port: '%env.FLUENTD_PORT%'
+
+  Psr\Log\LoggerInterface:
+    class: App\Logger\FluentdLogger
+
+  Eva\DtoCreator\DtoCreatorCommand:
+    class: Eva\DtoCreator\DtoCreatorCommand
+
+service_providers:
+  - Eva\EventDispatcher\EventDispatcherProvider

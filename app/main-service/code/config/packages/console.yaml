@@ -1,0 +1,17 @@
+list: Eva\Console\Commands\ListCommand
+
+app.handle.pullrequest.capture: App\Commands\CaptureOpenPullRequestCommand
+app.handle.pullrequest.sync: App\Commands\SyncPullRequestsCommand
+app.handle.review.status: App\Commands\ReviewStatusCommand
+
+app.queue.pullrequest.capture: App\Commands\Queue\CaptureOpenPullRequestQueueCommand
+app.queue.pullrequest.sync: App\Commands\Queue\SyncPullRequestsQueueCommand
+app.queue.review.status: App\Commands\Queue\ReviewStatusQueueCommand
+
+app.validation.schema.creator: App\Commands\CreateValidationSchemaCommand
+app.dto.creator: Eva\DtoCreator\DtoCreatorCommand
+
+db.migrations.create: Eva\Database\Migrations\Commands\CreateCommand
+db.migrations.migrate: Eva\Database\Migrations\Commands\MigrateCommand
+db.migrations.rollback: Eva\Database\Migrations\Commands\RollbackCommand
+db.migrations.status: Eva\Database\Migrations\Commands\StatusCommand

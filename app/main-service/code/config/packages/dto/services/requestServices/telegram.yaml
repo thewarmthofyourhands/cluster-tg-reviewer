@@ -1,0 +1,53 @@
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: UpdateDto
+  properties:
+    update_id: int
+    message: null|array
+    inline_query: null|array
+    callback_query: null|array
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: MessageDto
+  properties:
+    message_id: int
+    date: int
+    from: array
+    chat: array
+    text: string
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: CallbackQueryDto
+  properties:
+    id: string
+    from: array
+    message: array
+    data: null|string
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: SendMessageDto
+  properties:
+    chat_id: int
+    text: string
+    reply_markup: array
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: SendMessageDto
+  properties:
+    chat_id: int
+    text: string
+    reply_markup: array
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: InlineKeyboardDto
+  properties:
+    text: string
+    callback_data: string
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: ReplyMarkupDto
+  properties:
+    inline_keyboard: array
+    keyboard: array
+    one_time_keyboard: bool
+    is_persistent: bool
+    remove_keyboard: bool

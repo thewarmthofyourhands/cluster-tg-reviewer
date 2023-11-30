@@ -1,0 +1,54 @@
+- namespace: App\Dto\Services\ProjectService
+  class: DeleteProjectDto
+  properties:
+    adminId: int
+    id: int
+
+- namespace: App\Dto\Services\ProjectService
+  class: AddProjectDto
+  properties:
+    adminId: int
+    name: string
+    gitRepositoryUrl: string
+    gitType: \App\Enums\GitServiceTypeEnum
+    reviewType: \App\Enums\ReviewTypeEnum
+
+- namespace: App\Dto\Services\ProjectService
+  class: ChangeProjectReviewTypeDto
+  properties:
+    adminId: int
+    id: int
+    reviewType: \App\Enums\ReviewTypeEnum
+
+- namespace: App\Dto\Services\ProjectService
+  class: ProjectDto
+  properties:
+    id: int
+    adminId: int
+    name: string
+    projectStatus: \App\Enums\ProjectStatusEnum
+    gitRepositoryUrl: string
+    gitType: \App\Enums\GitServiceTypeEnum
+    reviewType: \App\Enums\ReviewTypeEnum
+
+- namespace: App\Dto\Services\ProjectService
+  class: GetProjectListDto
+  properties:
+    adminId: int
+
+- namespace: App\Dto\Services\ProjectService
+  class: GetProjectDto
+  properties:
+    id: int
+
+- namespace: App\Dto\Services\ProjectService
+  class: GetProjectByNameDto
+  properties:
+    adminId: int
+    name: string
+
+- namespace: App\Dto\Services\ProjectService
+  class: GetProjectByGitRepositoryUrlDto
+  properties:
+    adminId: int
+    gitRepositoryUrl: string

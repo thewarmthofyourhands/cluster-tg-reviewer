@@ -1,0 +1,67 @@
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: AddPullRequestDto
+  properties:
+    projectId: int
+    developerId: null|int
+    pullRequestNumber: int
+    title: string
+    branch: string
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: null|string
+
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: ChangeDeveloperIdPullRequestDto
+  properties:
+    id: int
+    projectId: int
+    developerId: null|int
+
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: ChangeStatusPullRequestDto
+  properties:
+    id: int
+    projectId: int
+    status: \App\Enums\PullRequestStatusEnum
+
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: ChangeToPendingStatusPullRequestDto
+  properties:
+    id: int
+    projectId: int
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: string
+
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: PullRequestDto
+  properties:
+    id: int
+    projectId: int
+    developerId: null|int
+    pullRequestNumber: int
+    title: string
+    branch: string
+    status: \App\Enums\PullRequestStatusEnum
+    lastPendingDate: null|string
+
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: GetPendingReviewPullRequestListDto
+  properties:
+    projectId: int
+
+# Получаем пулл реквесты на которые нужно назначить ревьювера или которые апрувнутые
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: GetOpenReviewPullRequestListDto
+  properties:
+    projectId: int
+
+# Получаем пулл реквесты на которые нужно назначить ревьювера или которые апрувнутые
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: GetOpenReviewWithoutDeveloperPullRequestListDto
+  properties:
+    projectId: int
+
+# Для апдейта статуса
+- namespace: App\Dto\Repositories\PullRequestRepository
+  class: GetNotClosedPullRequestListDto
+  properties:
+    projectId: int

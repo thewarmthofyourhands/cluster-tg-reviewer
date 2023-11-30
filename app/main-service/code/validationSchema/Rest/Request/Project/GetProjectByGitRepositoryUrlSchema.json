@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "adminId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "gitRepositoryUrl": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": "organization/repository-1"
+    }
+  },
+  "required": [
+    "adminId",
+    "gitRepositoryUrl"
+  ],
+  "additionalProperties": false
+}

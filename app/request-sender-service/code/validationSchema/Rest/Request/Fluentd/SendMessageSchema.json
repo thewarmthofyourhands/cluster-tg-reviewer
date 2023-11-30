@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "tag": {
+      "type": "string",
+      "description": "fluentd tag",
+      "example": "prod.reviewer.service.request.sender"
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Message",
+      "example": "log data"
+    }
+  },
+  "required": [
+    "tag",
+    "message"
+  ],
+  "additionalProperties": false
+}

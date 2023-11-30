@@ -1,0 +1,15 @@
+- namespace: App\Dto\Services\RequestServices\Telegram
+  class: SendMessageDto
+  properties:
+    chat_id: int
+    text: string
+    reply_markup: array
+
+- namespace: App\Dto\Services\RequestServices\Telegram
+  class: ReplyMarkupDto
+  properties:
+    inline_keyboard: array
+    keyboard: array
+    one_time_keyboard: bool
+    is_persistent: bool
+    remove_keyboard: bool

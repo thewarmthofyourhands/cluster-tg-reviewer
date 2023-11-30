@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "adminId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": "project 1"
+    },
+    "gitRepositoryUrl": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": "organization/repository-1"
+    },
+    "gitType": {
+      "type": "string",
+      "enum": [
+        "GIT_HUB",
+        "GIT_LAB",
+        "GIT_BUCKET"
+      ],
+      "description": "",
+      "example": "GIT_HUB"
+    },
+    "reviewType": {
+      "type": "string",
+      "enum": [
+        "TEAM_LEAD_REVIEW",
+        "CROSS_REVIEW",
+        "CROSS_REVIEW_WITHOUT_TEAM_LEAD"
+      ],
+      "description": "",
+      "example": "TEAM_LEAD_REVIEW"
+    }
+  },
+  "required": [
+    "adminId",
+    "name",
+    "gitRepositoryUrl",
+    "gitType",
+    "reviewType"
+  ],
+  "additionalProperties": false
+}

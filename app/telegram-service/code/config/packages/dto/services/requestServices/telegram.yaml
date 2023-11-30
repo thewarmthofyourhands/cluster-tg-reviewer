@@ -1,0 +1,21 @@
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: SendMessageDto
+  properties:
+    chatId: int
+    text: string
+    keyboard: null|array
+    inlineKeyboard: null|array
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: InlineKeyboardDto
+  properties:
+    text: string
+    callbackData: string
+
+- namespace: App\Dto\Services\RequestServices\TelegramRequestService
+  class: KeyboardDto
+  properties:
+    buttonList: array
+    oneTimeKeyboard: bool
+    isPersistent: bool
+    removeKeyboard: bool

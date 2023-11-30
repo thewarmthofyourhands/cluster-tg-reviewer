@@ -1,0 +1,32 @@
+- namespace: App\Dto\Services\ChatService
+  class: AddChatDto
+  properties:
+    projectId: int
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+    status: \App\Enums\ChatStatusEnum
+
+- namespace: App\Dto\Services\ChatService
+  class: DeleteChatDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\Services\ChatService
+  class: GetChatByIdDto
+  properties:
+    projectId: int
+    id: int
+
+- namespace: App\Dto\Services\ChatService
+  class: GetChatByProjectIdDto
+  properties:
+    projectId: int
+
+- namespace: App\Dto\Services\ChatService
+  class: ChatDto
+  properties:
+    projectId: int
+    id: int
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+    status: \App\Enums\ChatStatusEnum

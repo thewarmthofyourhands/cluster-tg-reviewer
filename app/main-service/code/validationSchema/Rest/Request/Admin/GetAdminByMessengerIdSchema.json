@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "messengerId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "messenger id",
+      "example": 1
+    },
+    "messengerType": {
+      "type": "string",
+      "enum":  [
+        "TELEGRAM",
+        "SLACK"
+      ],
+      "description": "messenger type",
+      "example": "TELEGRAM"
+    }
+  },
+  "required": [
+    "messengerId",
+    "messengerType"
+  ],
+  "additionalProperties": false
+}

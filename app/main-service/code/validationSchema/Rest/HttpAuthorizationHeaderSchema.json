@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "Authorization": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9]+$",
+      "description": "Authorization id",
+      "example": 1
+    }
+  },
+  "required": [
+    "Authorization"
+  ],
+  "additionalProperties": true
+}

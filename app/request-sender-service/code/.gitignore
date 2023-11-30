@@ -1,0 +1,7 @@
+.env.prod
+.env
+
+vendor/
+.idea
+.phpunit.result.cache
+.DS_Store

@@ -1,0 +1,12 @@
+- namespace: App\Dto\UseCase\Admins
+  class: AddAdminDto
+  properties:
+    nickname: string
+    messengerId: int
+
+- namespace: App\Dto\UseCase\Admins
+  class: AdminDto
+  properties:
+    id: int
+    nickname: string
+    messengerId: int

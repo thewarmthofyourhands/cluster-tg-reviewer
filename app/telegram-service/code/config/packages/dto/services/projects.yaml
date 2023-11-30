@@ -1,0 +1,19 @@
+- namespace: App\Dto\Services\ProjectService
+  class: ProjectDto
+  properties:
+    adminId: int
+    id: int
+    name: string
+    projectStatus: \App\Enums\Services\ProjectService\ProjectStatusEnum
+    gitRepositoryUrl: string
+    gitType: \App\Enums\Services\ProjectService\GitServiceTypeEnum
+    reviewType: \App\Enums\Services\ProjectService\ReviewTypeEnum
+
+- namespace: App\Dto\Services\ProjectService
+  class: AddProjectDto
+  properties:
+    adminId: int
+    name: string
+    gitRepositoryUrl: string
+    gitType: \App\Enums\Services\ProjectService\GitServiceTypeEnum
+    reviewType: \App\Enums\Services\ProjectService\ReviewTypeEnum

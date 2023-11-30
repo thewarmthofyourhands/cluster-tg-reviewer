@@ -1,0 +1,26 @@
+
+- namespace: App\Dto\Services\DeveloperService
+  class: AddDeveloperDto
+  properties:
+    adminId: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\Services\DeveloperService\DeveloperStatusEnum
+
+- namespace: App\Dto\Services\DeveloperService
+  class: ChangeDeveloperStatusDto
+  properties:
+    adminId: int
+    projectId: int
+    id: int
+    status: \App\Enums\Services\DeveloperService\DeveloperStatusEnum
+
+- namespace: App\Dto\Services\DeveloperService
+  class: DeveloperDto
+  properties:
+    id: int
+    projectId: int
+    nickname: string
+    isAdmin: bool
+    status: \App\Enums\Services\DeveloperService\DeveloperStatusEnum

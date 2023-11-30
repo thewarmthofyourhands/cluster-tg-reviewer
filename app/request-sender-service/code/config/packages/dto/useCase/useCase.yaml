@@ -1,0 +1,41 @@
+#GITHUB
+- namespace: App\Dto\UseCase\GitHub
+  class: GetPullRequestWithStatusListDto
+  properties:
+    token: string
+    repositoryFullName: string
+
+- namespace: App\Dto\UseCase\GitHub
+  class: CheckTokenDto
+  properties:
+    token: string
+    repositoryFullName: string
+
+- namespace: App\Dto\UseCase\GitHub
+  class: PullRequestWithStatusDto
+  properties:
+    branch: string
+    title: string
+    number: int
+    repositoryName: string
+    repositoryFullName: string
+    status: \App\Enums\GitHub\PullRequestStatusEnum
+
+#TELEGRAM
+- namespace: App\Dto\UseCase\Telegram
+  class: SendMessageDto
+  properties:
+    token: string
+    chatId: int
+    text: string
+    keyboard: null|array
+    inlineKeyboard: null|array
+#
+#- namespace: App\Dto\UseCase\Telegram
+#  class: UpdateDto
+#  properties:
+#    userId: int
+#    username: string
+#    chatId: int
+#    chatType: string
+#    text: string

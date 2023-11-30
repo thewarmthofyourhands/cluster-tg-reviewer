@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "Authorization": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Authorization token",
+      "example": "ag423hg3h35h53h3h"
+    }
+  },
+  "required": [
+    "Authorization"
+  ],
+  "additionalProperties": true
+}

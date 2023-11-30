@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "adminId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "projectId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    },
+    "nickname": {
+      "type": "string",
+      "minLength": 1,
+      "description": "",
+      "example": "monk_case"
+    }
+  },
+  "required": [
+    "adminId",
+    "projectId",
+    "nickname"
+  ],
+  "additionalProperties": false
+}

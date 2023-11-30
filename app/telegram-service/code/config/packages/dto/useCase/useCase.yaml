@@ -1,0 +1,17 @@
+- namespace: App\Dto\UseCase
+  class: ReviewStatusDto
+  properties:
+    projectName: string
+    developerNickname: string
+    title: string
+    branch: string
+    url: string
+    pastHours: string
+
+- namespace: App\Dto\UseCase
+  class: TelegramUserDto
+  properties:
+    id: int
+    telegramId: int
+    username: string
+    data: string

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "adminId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "",
+      "example": 1
+    }
+  },
+  "required": [
+    "adminId"
+  ],
+  "additionalProperties": false
+}

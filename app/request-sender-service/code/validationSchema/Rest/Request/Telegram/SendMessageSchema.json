@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "description": "Token",
+      "example": "124dqw214r1t1rhhagd2"
+    },
+    "chatId": {
+      "type": "integer",
+      "minimal": 1,
+      "description": "Chat id telegram",
+      "example": 1
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Telegram message text",
+      "default": "",
+      "example": "Hi user"
+    },
+    "keyboard": {
+      "type": ["null", "object"],
+      "properties": {
+        "buttonList": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "object",
+            "description": "Button",
+            "example": {
+              "text": "Button 1"
+            },
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "Button text"
+              },
+              "request_chat": {
+                "type": "object",
+                "properties": {
+                  "request_id": {
+                    "type": "integer"
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "required": ["text"],
+              "additionalProperties": true
+            }
+          }
+        },
+        "oneTimeKeyboard": {
+          "type": "boolean",
+          "default": true,
+          "description": "is Keyboard one time",
+          "example": false
+        },
+        "isPersistent": {
+          "type": "boolean",
+          "default": false,
+          "description": "is Keyboard persistent",
+          "example": false
+        },
+        "removeKeyboard": {
+          "type": "boolean",
+          "default": false,
+          "description": "remove Keyboard",
+          "example": true
+        }
+      },
+      "required" : [
+        "buttonList"
+      ],
+      "description": "Telegram keyboard",
+      "default": null,
+      "example": ""
+    },
+    "inlineKeyboard": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "description": "",
+            "example": "Inline text button"
+          },
+          "callbackData": {
+            "type": "string",
+            "minLength": 1,
+            "description": "",
+            "default": "{}",
+            "example": "{}"
+          }
+        },
+        "required": [
+          "text",
+          "callbackData"
+        ]
+      },
+      "description": "Telegram inline keyboard",
+      "default": null,
+      "example": ""
+    }
+  },
+  "required": [
+    "token",
+    "chatId",
+    "text",
+    "keyboard",
+    "inlineKeyboard"
+  ],
+  "additionalProperties": false
+}

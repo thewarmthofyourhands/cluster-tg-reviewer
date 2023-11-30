@@ -1,0 +1,25 @@
+- namespace: App\Dto\Services\AdminService
+  class: AddAdminDto
+  properties:
+    nickname: string
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+
+- namespace: App\Dto\Services\AdminService
+  class: GetAdminByMessengerIdDto
+  properties:
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum
+
+- namespace: App\Dto\Services\AdminService
+  class: GetAdminByIdDto
+  properties:
+    id: int
+
+- namespace: App\Dto\Services\AdminService
+  class: AdminDto
+  properties:
+    id: int
+    nickname: string
+    messengerId: int
+    messengerType: \App\Enums\MessengerTypeEnum

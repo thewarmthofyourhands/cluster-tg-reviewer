@@ -1,0 +1,2 @@
+Eva\Console\Events\ExceptionEvent: App\EventListeners\ExceptionListener
+Eva\HttpKernel\Events\ExceptionEvent: App\EventListeners\HttpExceptionListener
